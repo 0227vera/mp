@@ -18,6 +18,12 @@
   {
     "pages": [
       "./pages/index"
+    ],
+    "packages": [
+      // NOTE: plop自动添加文件引入的判断，误删
+      // plop auto add subpackage import
+      "./subpackage/homepage/app.mpx?root=homepage",
+      "./subpackage/personal-center/app.mpx?root=personal-center"
     ]
   }
 </script>

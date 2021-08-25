@@ -1,19 +1,32 @@
 <template>
-  <list></list>
+  <view bindtap="gotoHomepage">点击跳转到homepage</view>
+  <view bindtap="gotoPersonalcenter">点击跳转到personal-center page</view>
 </template>
 
 <script>
-  import { createPage } from '@mpxjs/core'
+  import mpx, { createPage } from '@mpxjs/core'
+  import PersonalCenterPageUrl from '../subpackage/personal-center/pages/index.mpx?resolve'
 
   createPage({
-    onLoad () {}
+    onLoad () {},
+    methods: {
+      gotoHomepage () {
+        mpx.navigateTo({
+          url: '/homepage/pages/index'
+        })
+      },
+      gotoPersonalcenter () {
+        mpx.navigateTo({
+          url: PersonalCenterPageUrl
+        })
+      }
+    }
   })
 </script>
 
 <script type="application/json">
   {
     "usingComponents": {
-      "list": "../components/list"
     }
   }
 </script>
