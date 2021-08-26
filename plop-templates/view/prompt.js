@@ -39,7 +39,8 @@ module.exports = {
         data: {
           name,
           isNeedService,
-          isNeedStore
+          isNeedStore,
+          isNeedCom
         }
       },
       {
