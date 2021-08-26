@@ -2,13 +2,26 @@
   <view>
     this is personal-center page
   </view>
+  <view>
+    {{getDoubleCount}}
+  </view>
+  <button bindtap="changeSelf">点击改变自身的store</button>
 </template>
 
 <script>
   import { createPage } from '@mpxjs/core'
-
+  import selfStore from '../store'
   createPage({
-    onLoad () {}
+    onLoad () {},
+    computed: {
+      ...selfStore.mapGetters(['getDoubleCount'])
+    },
+    methods: {
+      ...selfStore.mapActions(['changeCount']),
+      changeSelf () {
+        this.changeCount(this.getDoubleCount)
+      }
+    }
   })
 </script>
 

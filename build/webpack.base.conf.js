@@ -13,7 +13,8 @@ module.exports = {
     modules: ['node_modules'],
     alias: {
       // NOTE: 根据开发习惯添加相关的自定义配置
-      'services': resolve('src/services')
+      'services': resolve('src/services'),
+      'store': resolve('src/store')
     }
   },
   optimization: {

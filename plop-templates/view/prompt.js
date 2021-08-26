@@ -20,11 +20,17 @@ module.exports = {
       name: 'isNeedService',
       message: '是否需要添加接口请求的统一格式?',
       default: true
+    },
+    {
+      type: 'confirm',
+      name: 'isNeedStore',
+      message: '是否需要添加store管理页面数据?',
+      default: true
     }
   ],
   actions: (data) => {
     const name = '{{ snakeCase name }}'
-    const { isNeedCom, isNeedService } = data
+    const { isNeedCom, isNeedService, isNeedStore } = data
     const actions = [
       {
         type: 'add',
@@ -32,7 +38,8 @@ module.exports = {
         templateFile: 'plop-templates/view/index.hbs',
         data: {
           name,
-          isNeedService
+          isNeedService,
+          isNeedStore
         }
       },
       {
@@ -71,6 +78,13 @@ module.exports = {
         path: 'src/services/index.js',
         pattern: /(\/\/ plop auto add api import)/,
         template: `export * from './{{ snakeCase name }}'`
+      })
+    }
+    if (isNeedStore) {
+      actions.push({
+        type: 'add',
+        path: `src/subpackage/${name}/store/index.js`,
+        templateFile: 'plop-templates/view/store.hbs'
       })
     }
 

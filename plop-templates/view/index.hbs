@@ -6,11 +6,34 @@
 
 <script>
   import { createPage } from '@mpxjs/core'
+  {{#if isNeedStore}}
+  import selfStore from '../store'
+  {{/if}}
   {{#if isNeedService}}
   import { get{{ name }}Data } from 'services'
   {{/if}}
   createPage({
-    onLoad () {}
+    onLoad () {
+      {{#if isNeedService}}
+      get{{ name }}Data.then(res => {
+        console.log(res)
+      })
+      {{/if}}
+    },
+    data: {
+
+    },
+    computed: {
+      {{#if isNeedStore}}
+      ...selfStore.mapGetters(['getDoubleCount'])
+      {{/if}}
+    },
+    watch: {
+
+    },
+    methods: {
+
+    }
   })
 </script>
 

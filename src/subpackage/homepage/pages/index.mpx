@@ -2,14 +2,30 @@
   <view>
     this is homepage
   </view>
+  <view>
+    {{getDoubleCount}}
+  </view>
+  <button bindtap="changeGlobal">
+    点击改变全局store值
+  </button>
 </template>
 
 <script>
   import { createPage } from '@mpxjs/core'
   import { getListData } from 'services'
+  import store from 'store'
   createPage({
     onLoad () {
       getListData()
+    },
+    computed: {
+      ...store.mapGetters(['getDoubleCount'])
+    },
+    methods: {
+      ...store.mapActions(['changeCount']),
+      changeGlobal () {
+        this.changeCount(this.getDoubleCount)
+      }
     }
   })
 </script>

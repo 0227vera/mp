@@ -1,10 +1,13 @@
 <script>
   import { createApp } from '@mpxjs/core'
   import { globalSet } from './utils'
+  import store from 'store'
   globalSet()
   
   createApp({
+    ...store.mapMutations(['initCount']),
     onLaunch () {
+      this.initCount()
     }
   })
 </script>
