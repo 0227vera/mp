@@ -24,3 +24,7 @@ build默认prod，watch默认dev。另单独提供了build:dev和watch:prod，�
 ## mpx文档
 
 [https://mpxjs.cn/](https://mpxjs.cn/)
+
+## 关于plop
+
+[plop文档](https://plopjs.com/documentation/)
