@@ -1,9 +1,8 @@
 <script>
-  import mpx, { createApp } from '@mpxjs/core'
-  import apiProxy from '@mpxjs/api-proxy'
-
-  mpx.use(apiProxy, { usePromise: true })
-
+  import { createApp } from '@mpxjs/core'
+  import { globalSet } from './utils'
+  globalSet()
+  
   createApp({
     onLaunch () {
     }

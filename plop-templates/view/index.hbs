@@ -6,7 +6,9 @@
 
 <script>
   import { createPage } from '@mpxjs/core'
-
+  {{#if isNeedService}}
+  import { get{{ name }}Data } from 'services'
+  {{/if}}
   createPage({
     onLoad () {}
   })

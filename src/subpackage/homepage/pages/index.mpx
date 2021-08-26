@@ -6,9 +6,11 @@
 
 <script>
   import { createPage } from '@mpxjs/core'
-
+  import { getListData } from 'services'
   createPage({
-    onLoad () {}
+    onLoad () {
+      getListData()
+    }
   })
 </script>
 

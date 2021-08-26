@@ -1,0 +1,8 @@
+import http from './http'
+import env from './env'
+
+const urls = {
+  url1: `${env.api}/geturl`
+}
+
+export const get{{name}}Data = () => http.get({ url: urls.url1 })

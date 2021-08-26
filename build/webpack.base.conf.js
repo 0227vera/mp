@@ -1,3 +1,8 @@
+const path = require('path')
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   performance: {
     hints: false
@@ -5,7 +10,11 @@ module.exports = {
   mode: 'none',
   resolve: {
     extensions: ['.mpx', '.js', '.wxml', '.vue', '.ts'],
-    modules: ['node_modules']
+    modules: ['node_modules'],
+    alias: {
+      // NOTE: 根据开发习惯添加相关的自定义配置
+      'services': resolve('src/services')
+    }
   },
   optimization: {
     minimizer: [
